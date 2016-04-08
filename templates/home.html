@@ -1,0 +1,332 @@
+{% extends 'base.html' %}
+{% block title %}
+    Welcome to TSS TVM
+{% endblock %}
+{% load staticfiles %}
+{% block main %}
+
+<div class="container" id="jumbomain">
+        <div class="jumbotron">
+        <div class="col-xs-12 col-sm-6">
+        <h1>Welcome to TSS TVM</h1>
+		<h3>Thiruvananthapuram</h3>
+        </div>
+
+		<p>43rd Annual day has been celebrated on 06.07.2014 at Vailoppalli Samskrithi Bhavan, Near Nandancode in association with Bharat Bhavan, Dept. of Culture, Govt. of Kerala.</p>
+		<a class="btn btn-success btn-lg" href="{% url 'feeds' %}"> Got an update? Compose here</a>
+
+        </div>
+</div>
+
+<br/>
+ <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+  
+		<div class="col-md-4">
+
+		<div class="panel panel-primary">
+      <div class="panel-heading" style="text-align: center;font-size: larger;"><a href="{% url 'home' %}" style="color: white;"> Events </a></div>
+        <!-- <div class="panel-body">	-->
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active" id="over">
+        <img src="{% static "1.jpg" %}" alt="Chania" width="460" height="345">
+		
+        </div>
+
+      <div class="item" id="over">
+        <img src="{% static "2.jpg" %}" alt="Chania" width="460" height="345">
+      </div>
+    
+      <div class="item" id="over">
+        <img src="{% static "3.jpg" %}" alt="Flower" width="460" height="345">
+      </div>
+
+      <div class="item" id="over">
+        <img src="{% static "4.jpg" %}" alt="Flower" width="460" height="345">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+       </div>
+		
+		</div>
+	  <!-- </div> -->
+		
+		
+		      <div class="col-md-5">
+
+<div class="panel panel-primary">
+      <div class="panel-heading" style="text-align: center;font-size: larger;"><a href="{% url 'feeds' %}" style="color: white;"> Updates </a></div>
+        <div class="panel-body">
+		  
+		<ul class="stream">
+    {% for feed in posts %}
+      <li><p><a href="/feeds/#{{feed.user.username}}_{{feed.id}}">{{ feed.user.profile.get_screen_name }}</a> <em>{{ feed.linkfy_post|safe|truncatechars:50 }}</em> <em>  </em><span class="glyphicon glyphicon-thumbs-up"></span> (<span class="like-count">{{ feed.likes }}</span>)</p></li>
+    {% endfor %}
+  </ul>
+		</div>
+		  
+        </div>
+			  </div>		
+		
+		
+		
+		
+		
+	
+        <div class="col-md-3">
+<div class="panel panel-primary">
+      <div class="panel-heading" style="text-align: center;font-size: larger;">Statistics </div>
+				
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+						  <td><span class="glyphicon glyphicon-user"></span></td>
+						  <td><a href="{% url 'members' %}">Members</a> </td>
+						  <td>{{ users_no }}</td>
+						</tr>
+						<tr>
+						  <td><span class="glyphicon glyphicon-book"></span></td>
+						  <td><a href="{% url 'articles' %}">Articles</a> </td>
+						  <td>{{ articles_no }}</td>
+						</tr>
+						<tr>
+						  <td><span class="glyphicon glyphicon-tasks"></span></td>
+						  <td><a href="{% url 'feeds' %}">Posts</a> </td>
+						  <td>{{ feeds_no }}</td>
+						</tr>
+						<tr>
+						  <td><span class="glyphicon glyphicon-glass"></span></td>
+						  <td><a href="{% url 'home' %}">Upcoming Events</a> </td>
+						  <td>{{ events_up }}</td>
+						</tr>
+						<tr>
+						  <td><span class="glyphicon glyphicon-picture"></span></td>
+						  <td><a href="{% url 'home' %}">Past Events</a> </td>
+						  <td>{{ events_old }}</td>
+						</tr>
+					</tbody>
+				  </table>
+        </div>
+
+
+      </div>
+		</div>
+
+      <hr>
+</div>
+
+
+
+
+
+
+
+
+
+<section class="row fw-row content-width asset-bg alt-ten arrow_box">
+<div class="container">
+    <div class="row">
+	<div class="full-width-text spb_content_element col-sm-12 mt0 mb0 bt0 bb0 no-shadow spb_text_column">
+		<div class="spb_wrapper clearfix">
+			
+		<p class="impact-text-large" style="text-align: center; color: #ffffff;">Vision</p>
+		<h3 style="text-align: center;">Committed to interactions, insights and impacts through technology and business</h3>
+		</div> 
+	</div>
+    </div>
+</div>
+</section>
+
+<section class="container">
+    <div class="row">
+		<div class="blank_spacer col-sm-12 " style="height:70px;">
+		</div>
+    </div>
+</section>
+
+
+
+
+<div class="container">
+<div class="row">
+  		<div class="col-md-8">
+<h3 class="spb-heading spb-text-heading"><span>About</span></h3>
+				 <p>The long felt desire of Telugu knowing public of Thiruvananthapuram to form a cultural association was fulfilled on the 11th January 1971, when Telugu Samskrithika Sangham was registered under the Travancore - Cochin Literary, Scientific and Charitable Societies Act XII of 1955.</p>
+
+<p>The Telugu Sangham has become a platform for its members to express themselves in various art forms like music, drama, dance and literature. Sangham has organised over fifty dramas; equal number of classical, folk and film musical concerts; multitude poetry recitals; Rangavalli displays and Telugu food festivals -all ardently participated by all the members.</p>
+
+<p>The Sangham while identifying itself with glorious Telugu culture is first and foremost to cut the barriers of language and region and integrate itself with all cultural organizations in Thiruvananthapuram to promote National Integration and espouse splendid Indian culture. The Sangham is a proud member of Bharat Bhavan, Department of Culture, Government of Kerala, ever since its inception and worked together to organise numerous cultural programmes.</p>
+		</div>
+<div class="col-md-4">
+<div>
+<h3>Latest Events</h3>
+  <div class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><a href="{% url 'home' %}"> Event 1 </a></div>
+        <div class="panel-body"><p>Yesterday at</p>
+Happens...<a href="{% url 'home' %}"> more</a></div>
+    </div>
+  </div>
+</div>
+
+<div>
+<h3>Upcoming Events</h3>
+  <div class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><a href="{% url 'home' %}"> Event 1 </a></div>
+        <div class="panel-body"><p>Today at</p>
+Happens...<a href="{% url 'home' %}"> more</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<section class="row fw-row content-width histelem">
+<div class="container">
+
+		<div id="pull_right">
+				
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active" id="over">
+        <img src="{% static "1.jpg" %}" alt="Chania" width="460" height="345">
+      </div>
+
+      <div class="item" id="over">
+        <img src="{% static "2.jpg" %}" alt="Chania" width="460" height="345">
+      </div>
+    
+      <div class="item" id="over">
+        <img src="{% static "3.jpg" %}" alt="Flower" width="460" height="345">
+      </div>
+
+      <div class="item" id="over">
+        <img src="{% static "4.jpg" %}" alt="Flower" width="460" height="345">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+		</div>
+		<p></p>
+<h3 class="spb-heading spb-text-heading">History</h3>	
+				<p>Necessity is the mother of Invention and Telugu Samskrithika Sangham (TSS) sprouted out from this sheer necessity. It was at this point, when few valiant Telugu speaking people took the onerous responsibility to set the things right and formed TSS with their own financial contribution.</p>
+
+				<p>The deep down belief and the respect for the Telugu culture gave birth to TSS in 1971. The task to build up an association like this, thus the journey of TSS started. Today, with every passing year, we are growing stronger, beaming alive with cultural ethos. With such a noble initiative, we have marched forward and are contributing and executing future plans to volunteer for several social causes The Sangham has also screened over hundred Telugu films and organised four week long Film Festivals. The pinnacle of shows was nine day (Nava Rathri Navonmesham) long cultural extravaganza of music and dance with the theme of ‘Unity by celebration of Culture and Heritage’.</p>
+
+				<p>The Sangham had also the honour of presenting to enlightened citizens of Thiruvananthapuram some of the greatest artists and scholars from Andhra Pradesh. Gana gandharva Balamurali Krishna, Sri Emani Sankara Satry, Sri Vempati China Sathyam, Smt.Sobha Naidu, Sri Kala Krishna, Sri Chintha Ramanadham, Sri Nerella Venumadhav, Sri B.V Pattabhiram, Dr. C.Narayana Reddy, Sri Gollapudi Maruthi Rao, Dr. Gowri Shankar, Kala Tapaswi K. Viswanath and Dr. Akkineni Nageswara Rao are only few among them who have enthralled the audience with mesmerising expositions in Classical Music; Kuchipudi and Perini Natyam; Literature; Mimicry and Indrajal. The Sangham had also distinction of hosting several Kerala art forms including performances by renowned Kerala Kalamandalam.</p>
+			
+</div>
+</section>
+
+<section class="row fw-row content-width message">
+<div class="container">
+
+		<p></p>
+<h3 class="spb-heading spb-text-heading">Presidents message</h3>	
+				<p>Necessity is the mother of Invention and Telugu Samskrithika Sangham (TSS) sprouted out from this sheer necessity. It was at this point, when few valiant Telugu speaking people took the onerous responsibility to set the things right and formed TSS with their own financial contribution.</p>
+
+				<p>The deep down belief and the respect for the Telugu culture gave birth to TSS in 1971. The task to build up an association like this, thus the journey of TSS started. Today, with every passing year, we are growing stronger, beaming alive with cultural ethos. With such a noble initiative, we have marched forward and are contributing and executing future plans to volunteer for several social causes The Sangham has also screened over hundred Telugu films and organised four week long Film Festivals. The pinnacle of shows was nine day (Nava Rathri Navonmesham) long cultural extravaganza of music and dance with the theme of ‘Unity by celebration of Culture and Heritage’.</p>
+
+				<p>The Sangham had also the honour of presenting to enlightened citizens of Thiruvananthapuram some of the greatest artists and scholars from Andhra Pradesh. Gana gandharva Balamurali Krishna, Sri Emani Sankara Satry, Sri Vempati China Sathyam, Smt.Sobha Naidu, Sri Kala Krishna, Sri Chintha Ramanadham, Sri Nerella Venumadhav, Sri B.V Pattabhiram, Dr. C.Narayana Reddy, Sri Gollapudi Maruthi Rao, Dr. Gowri Shankar, Kala Tapaswi K. Viswanath and Dr. Akkineni Nageswara Rao are only few among them who have enthralled the audience with mesmerising expositions in Classical Music; Kuchipudi and Perini Natyam; Literature; Mimicry and Indrajal. The Sangham had also distinction of hosting several Kerala art forms including performances by renowned Kerala Kalamandalam.</p>
+			
+</div>
+</section>
+
+
+
+
+
+
+<section class="fw-row row-content-width asset-bg ">
+		<div class="container">
+				<div class="row">
+						<div class="spb-row-container spb-row-content-width spb_parallax_asset sf-parallax parallax-content-height spb_content_element bg-type-cover col-sm-12  " data-v-center="true" data-top-style="" data-bottom-style="" style="background-color:#e7e7e7;margin-top:30px;margin-bottom:30px;">
+								<div class="spb_content_element" style="padding-top:30px;padding-bottom:30px;">
+									 <section class="container">
+										<div class="row">
+												<div class="blank_spacer col-sm-12 " style="height:3px;"></div>
+										</div>
+									 </section>
+								    <section class="container">
+								    <div class="row">
+										<div class="spb_content_element col-sm-5 mt0 pt0 spb_text_column">
+										<div class="spb_wrapper clearfix">
+											<h3 class="spb-heading spb-text-heading"><span>Our Patrons</span></h3>
+			
+												<p>A patron is crucial in helping TSS TVM raise its credibility and aid in promoting the TSS with the necessary traction it deserves. The patrons will act as gurus to all members and will by virtue of their stature, attract partnership of key stakeholders.</p>
+												<p>TSS TVM is exceptionally lucky to have some key patrons who have dedicated their time and expertise to the forum.</p>
+
+										</div> 
+										</div>  
+										<div class="team_list_widget spb_content_element col-sm-7">
+											<div class="spb_wrapper">
+													<ul class="team-members row clearfix">
+															<li itemscope="" data-id="id-0" class="clearfix team-member col-sm-5"><figure class="gallery-style"><a href="#"><img itemprop="image" src="{% static "patron1.jpg" %}" height="300" width="300"></a><figcaption><h5 class="team-member-name">Adil Zainulbhai</h5><h5 class="team-member-position">Chairman of the Quality Council of India</h5></figcaption></figure></li>
+															<li itemscope="" data-id="id-1" class="clearfix team-member col-sm-5"><figure class="gallery-style"><a href="#"><img itemprop="image" src="{% static "patron2.jpg" %}" height="300" width="300"></a><figcaption><h5 class="team-member-name">Ajit Ranade</h5><h5 class="team-member-position">Chief Economist, Aditya Birla Group</h5></figcaption></figure></li>
+													</ul>
+											</div> 
+										</div>
+								    </div>
+									</section>
+								    <section class="container">
+										<div class="row">
+												<div class="blank_spacer col-sm-12 " style="height:3px;">
+														
+												</div>
+										</div>
+									</section>
+								</div> 
+						</div>
+				</div>
+		</div>
+</section>
+
+
+
+
+
+{% endblock %}

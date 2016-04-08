@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}
+    Welcome to TSS TVM
+{% endblock %}
+{% load staticfiles %}
+{% block main %}
+<div class="container-fluid">
+        <div class="jumbotron">
+        <div class="col-xs-12 col-sm-6">
+        <h1>Welcome to TSS TVM</h1>
+		<h3>Thiruvananthapuram</h3>
+        </div>
+		<p>43rd Annual day has been celebrated on 06.07.2014 at Vailoppalli Samskrithi Bhavan, Near Nandancode in association with Bharat Bhavan, Dept. of Culture, Govt. of Kerala.</p>
+		<a class="btn btn-info btn-lg" href="#"><span class="glyphicon glyphicon-search"></span> Search</a>
+        </div>
+</div>
+<div class="container">
+<div class="row">
+  		<div class="col-md-8">
+				 <p>The long felt desire of Telugu knowing public of Thiruvananthapuram to form a cultural association was fulfilled on the 11th January 1971, when Telugu Samskrithika Sangham was registered under the Travancore - Cochin Literary, Scientific and Charitable Societies Act XII of 1955.</p>
+
+<p>The Telugu Sangham has become a platform for its members to express themselves in various art forms like music, drama, dance and literature. Sangham has organised over fifty dramas; equal number of classical, folk and film musical concerts; multitude poetry recitals; Rangavalli displays and Telugu food festivals -all ardently participated by all the members.</p>
+
+<p>The Sangham while identifying itself with glorious Telugu culture is first and foremost to cut the barriers of language and region and integrate itself with all cultural organizations in Thiruvananthapuram to promote National Integration and espouse splendid Indian culture. The Sangham is a proud member of Bharat Bhavan, Department of Culture, Government of Kerala, ever since its inception and worked together to organise numerous cultural programmes.</p>
+		</div>
+<div class="col-md-4">
+<div>
+<h3>Latest Events</h3>
+  <div class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><a href="{% url 'home' %}"> Event 1 </a></div>
+        <div class="panel-body"><p>Yesterday at</p>
+Happens...<a href="{% url 'home' %}"> more</a></div>
+    </div>
+  </div>
+</div>
+
+<div>
+<h3>Upcoming Events</h3>
+  <div class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><a href="{% url 'home' %}"> Event 1 </a></div>
+        <div class="panel-body"><p>Today at</p>
+Happens...<a href="{% url 'home' %}"> more</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="container">
+	  <div class="row">
+  <div class="col-md-8">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active" id="over">
+        <img src="{% static "1.jpg" %}" alt="Chania" width="460" height="345">
+      </div>
+
+      <div class="item" id="over">
+        <img src="{% static "2.jpg" %}" alt="Chania" width="460" height="345">
+      </div>
+    
+      <div class="item" id="over">
+        <img src="{% static "3.jpg" %}" alt="Flower" width="460" height="345">
+      </div>
+
+      <div class="item" id="over">
+        <img src="{% static "4.jpg" %}" alt="Flower" width="460" height="345">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div> 
+  </div>
+
+<div class="col-md-4"></div>
+
+  </div>
+</div>
+{% endblock %}
